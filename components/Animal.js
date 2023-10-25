@@ -1,20 +1,26 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import React from "react";
 
-const Animal = () => {
-  const name = "Bobby";
-  const age = 4;
-  const isDog = true;
-
+const Animal = ({ name, age, isDog }) => {
   return (
     <View style={styles.animal}>
-      <Image
-        source={require(isDog ? "../assets/dog.jpg" : "../assets/cat.jpg")}
-        style={{
-          width: 200,
-          height: 200,
-        }}
-      />
+      {isDog ? (
+        <Image
+          source={require("../assets/dog.jpg")}
+          style={{
+            width: 200,
+            height: 200,
+          }}
+        />
+      ) : (
+        <Image
+          source={require("../assets/cat.jpg")}
+          style={{
+            width: 200,
+            height: 200,
+          }}
+        />
+      )}
       <Text
         style={{
           fontSize: 25,
