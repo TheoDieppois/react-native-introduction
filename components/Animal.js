@@ -5,39 +5,27 @@ const Animal = ({ name, initialAge, isDog }) => {
   const [age, setAge] = useState(initialAge);
 
   return (
-    <View style={styles.animal}>
+    <View
+      style={[
+        styles.animal,
+        {
+          borderWidth: !isDog ? 1 : 0,
+        },
+      ]}
+    >
       {isDog ? (
         <Image
           source={require("../assets/dog.jpg")}
-          style={{
-            width: 200,
-            height: 200,
-          }}
+          style={styles.animalImage}
         />
       ) : (
         <Image
           source={require("../assets/cat.jpg")}
-          style={{
-            width: 200,
-            height: 200,
-          }}
+          style={styles.animalImage}
         />
       )}
-      <Text
-        style={{
-          fontSize: 25,
-          fontWeight: "bold",
-        }}
-      >
-        {name}
-      </Text>
-      <Text
-        style={{
-          fontSize: 20,
-        }}
-      >
-        Age : {age}
-      </Text>
+      <Text style={styles.animalName}>{name}</Text>
+      <Text style={styles.animalAge}>Age : {age}</Text>
 
       <Text>{isDog ? "🐶" : "🐱"}</Text>
 
@@ -53,6 +41,26 @@ const styles = StyleSheet.create({
   animal: {
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#eee",
+    width: 280,
+    borderRadius: 10,
+    overflow: "hidden",
+    marginBottom: 30,
+  },
+
+  animalImage: {
+    width: "100%",
+    height: 200,
+    marginBottom: 5,
+  },
+
+  animalName: {
+    fontSize: 25,
+    fontWeight: "bold",
+  },
+
+  animalAge: {
+    fontSize: 20,
   },
 });
 
