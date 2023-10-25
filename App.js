@@ -1,69 +1,45 @@
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 export default function App() {
+  const name = "Bobby";
+  const age = 4;
+  const isDog = true;
+
   return (
-    <SafeAreaView style={styles.container}>
-      <View
+    <View style={styles.container}>
+      <Image
+        source={require(isDog ? "./assets/dog.jpg" : "./assets/cat.jpg")}
         style={{
-          backgroundColor: "#fff",
-          alignItems: "center",
-          flex: 1,
+          width: 200,
+          height: 200,
+        }}
+      />
+      <Text
+        style={{
+          fontSize: 25,
+          fontWeight: "bold",
         }}
       >
-        <Text>Hello world !</Text>
-        <Button title="Click me" onPress={() => alert("Hello world !")} />
-        <TextInput
-          placeholder="Enter your name"
-          style={{
-            backgroundColor: "#ccc",
-            width: 200,
-            height: 30,
-          }}
-        />
+        {name}
+      </Text>
+      <Text
+        style={{
+          fontSize: 20,
+        }}
+      >
+        Age : {age}
+      </Text>
 
-        <ScrollView>
-          <Image
-            source={require("./assets/dog.jpg")}
-            style={{ width: 200, height: 200 }}
-          />
-          <Image
-            source={require("./assets/dog.jpg")}
-            style={{ width: 200, height: 200 }}
-          />
-          <Image
-            source={require("./assets/dog.jpg")}
-            style={{ width: 200, height: 200 }}
-          />
-          <Image
-            source={require("./assets/dog.jpg")}
-            style={{ width: 200, height: 200 }}
-          />
-          <Image
-            source={{
-              uri: "https://picsum.photos/id/1084/536/354?grayscale",
-            }}
-            style={{ width: 200, height: 200 }}
-            resizeMode="contain"
-          />
-        </ScrollView>
-      </View>
-    </SafeAreaView>
+      <Text>{isDog ? "🐶" : "🐱"}</Text>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "red",
+    backgroundColor: "#fff",
+    alignItems: "center",
     justifyContent: "center",
   },
 });
