@@ -1,7 +1,9 @@
-import { View, Text, Image, StyleSheet } from "react-native";
-import React from "react";
+import { View, Text, Image, StyleSheet, Button } from "react-native";
+import { useState } from "react";
 
-const Animal = ({ name, age, isDog }) => {
+const Animal = ({ name, initialAge, isDog }) => {
+  const [age, setAge] = useState(initialAge);
+
   return (
     <View style={styles.animal}>
       {isDog ? (
@@ -38,6 +40,11 @@ const Animal = ({ name, age, isDog }) => {
       </Text>
 
       <Text>{isDog ? "🐶" : "🐱"}</Text>
+
+      <Button
+        title={`Augmenter l'âge de ${name}`}
+        onPress={() => setAge(age + 1)}
+      />
     </View>
   );
 };

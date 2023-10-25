@@ -4,8 +4,8 @@ import Animal from "./components/Animal";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Animal name={"Bobby"} age={4} isDog={true} />
-      <Animal name={"Jack"} age={2} isDog={false} />
+      <Animal name={"Bobby"} initialAge={4} isDog={true} />
+      <Animal name={"Jack"} initialAge={2} isDog={false} />
     </View>
   );
 }
