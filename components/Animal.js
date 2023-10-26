@@ -1,4 +1,13 @@
-import { View, Text, Image, StyleSheet, Button } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Button,
+  TouchableOpacity,
+  TouchableHighlight,
+  Pressable,
+} from "react-native";
 import { useState } from "react";
 
 const Animal = ({ name, initialAge, isDog }) => {
@@ -29,10 +38,13 @@ const Animal = ({ name, initialAge, isDog }) => {
 
       <Text>{isDog ? "🐶" : "🐱"}</Text>
 
-      <Button
-        title={`Augmenter l'âge de ${name}`}
+      <TouchableOpacity
         onPress={() => setAge(age + 1)}
-      />
+        style={styles.btn}
+        activeOpacity={0.7}
+      >
+        <Text style={styles.btnLabel}>Augmenter l'âge de {name}</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -61,6 +73,18 @@ const styles = StyleSheet.create({
 
   animalAge: {
     fontSize: 20,
+  },
+
+  btn: {
+    backgroundColor: "#191830",
+    padding: 10,
+    borderRadius: 5,
+    marginVertical: 10,
+  },
+
+  btnLabel: {
+    color: "#fff",
+    fontSize: 16,
   },
 });
 
