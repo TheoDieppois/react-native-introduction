@@ -9,6 +9,7 @@ import {
   Pressable,
 } from "react-native";
 import { useState } from "react";
+import styles from "./Animal.style";
 
 const Animal = ({ name, initialAge, isDog }) => {
   const [age, setAge] = useState(initialAge);
@@ -24,12 +25,12 @@ const Animal = ({ name, initialAge, isDog }) => {
     >
       {isDog ? (
         <Image
-          source={require("../assets/dog.jpg")}
+          source={require("../../assets/dog.jpg")}
           style={styles.animalImage}
         />
       ) : (
         <Image
-          source={require("../assets/cat.jpg")}
+          source={require("../../assets/cat.jpg")}
           style={styles.animalImage}
         />
       )}
@@ -48,44 +49,5 @@ const Animal = ({ name, initialAge, isDog }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  animal: {
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#eee",
-    width: 280,
-    borderRadius: 10,
-    overflow: "hidden",
-    marginBottom: 30,
-  },
-
-  animalImage: {
-    width: "100%",
-    height: 200,
-    marginBottom: 5,
-  },
-
-  animalName: {
-    fontSize: 25,
-    fontWeight: "bold",
-  },
-
-  animalAge: {
-    fontSize: 20,
-  },
-
-  btn: {
-    backgroundColor: "#191830",
-    padding: 10,
-    borderRadius: 5,
-    marginVertical: 10,
-  },
-
-  btnLabel: {
-    color: "#fff",
-    fontSize: 16,
-  },
-});
 
 export default Animal;
