@@ -1,50 +1,17 @@
 import { StyleSheet, View, Text } from "react-native";
+import { filters } from "./data";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.parent}>
-        <Text
-          style={[
-            styles.item,
-            {
-              backgroundColor: "red",
-              flex: 4,
-            },
-          ]}
-        >
-          1
-        </Text>
-        <Text
-          style={[
-            styles.item,
-            {
-              backgroundColor: "blue",
-            },
-          ]}
-        >
-          2
-        </Text>
-        <Text
-          style={[
-            styles.item,
-            {
-              backgroundColor: "green",
-            },
-          ]}
-        >
-          3
-        </Text>
-        <Text
-          style={[
-            styles.item,
-            {
-              backgroundColor: "yellow",
-            },
-          ]}
-        >
-          4
-        </Text>
+      <Text style={styles.title}>Filtres Armada :</Text>
+
+      <View style={styles.filterContainer}>
+        {filters.map((filter) => (
+          <Text key={filter.id} style={styles.filter}>
+            {filter.name}
+          </Text>
+        ))}
       </View>
     </View>
   );
@@ -58,19 +25,24 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
-  parent: {
-    borderColor: "black",
-    borderWidth: 1,
-    width: "90%",
-    height: 300,
-
-    // Flexbox
-    flexDirection: "row",
-    justifyContent: "center",
+  title: {
+    fontSize: 30,
+    fontWeight: "bold",
+    marginBottom: 30,
   },
-  item: {
-    flex: 1,
-    width: 100,
-    height: 100,
+
+  filterContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    width: "95%",
+    gap: 7,
+  },
+
+  filter: {
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 15,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
   },
 });
