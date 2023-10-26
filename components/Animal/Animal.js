@@ -1,5 +1,15 @@
-import { View, Text, Image, StyleSheet, Button } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Button,
+  TouchableOpacity,
+  TouchableHighlight,
+  Pressable,
+} from "react-native";
 import { useState } from "react";
+import styles from "./Animal.style";
 
 const Animal = ({ name, initialAge, isDog }) => {
   const [age, setAge] = useState(initialAge);
@@ -15,12 +25,12 @@ const Animal = ({ name, initialAge, isDog }) => {
     >
       {isDog ? (
         <Image
-          source={require("../assets/dog.jpg")}
+          source={require("../../assets/dog.jpg")}
           style={styles.animalImage}
         />
       ) : (
         <Image
-          source={require("../assets/cat.jpg")}
+          source={require("../../assets/cat.jpg")}
           style={styles.animalImage}
         />
       )}
@@ -29,39 +39,15 @@ const Animal = ({ name, initialAge, isDog }) => {
 
       <Text>{isDog ? "🐶" : "🐱"}</Text>
 
-      <Button
-        title={`Augmenter l'âge de ${name}`}
+      <TouchableOpacity
         onPress={() => setAge(age + 1)}
-      />
+        style={styles.btn}
+        activeOpacity={0.7}
+      >
+        <Text style={styles.btnLabel}>Augmenter l'âge de {name}</Text>
+      </TouchableOpacity>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  animal: {
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#eee",
-    width: "80%",
-    borderRadius: 10,
-    overflow: "hidden",
-    marginBottom: 30,
-  },
-
-  animalImage: {
-    width: "100%",
-    height: 200,
-    marginBottom: 5,
-  },
-
-  animalName: {
-    fontSize: 25,
-    fontWeight: "bold",
-  },
-
-  animalAge: {
-    fontSize: 20,
-  },
-});
 
 export default Animal;

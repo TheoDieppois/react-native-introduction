@@ -4,7 +4,7 @@ import {
   Dimensions,
   useWindowDimensions,
 } from "react-native";
-import Animal from "./components/Animal";
+import Animal from "./components/Animal/Animal";
 
 export default function App() {
   //const width = Dimensions.get("window").width;
