@@ -1,23 +1,51 @@
-import {
-  StyleSheet,
-  View,
-  Dimensions,
-  useWindowDimensions,
-} from "react-native";
-import Animal from "./components/Animal/Animal";
+import { StyleSheet, View, Text } from "react-native";
 
 export default function App() {
-  //const width = Dimensions.get("window").width;
-  //const height = Dimensions.get("window").height;
-  const { width, height } = useWindowDimensions();
-
   return (
     <View style={styles.container}>
-      <Animal name={"Bobby"} initialAge={4} isDog={true} />
-
-      {height > 700 ? (
-        <Animal name={"Jack"} initialAge={2} isDog={false} />
-      ) : null}
+      <View style={styles.parent}>
+        <Text
+          style={[
+            styles.item,
+            {
+              backgroundColor: "red",
+              flex: 4,
+            },
+          ]}
+        >
+          1
+        </Text>
+        <Text
+          style={[
+            styles.item,
+            {
+              backgroundColor: "blue",
+            },
+          ]}
+        >
+          2
+        </Text>
+        <Text
+          style={[
+            styles.item,
+            {
+              backgroundColor: "green",
+            },
+          ]}
+        >
+          3
+        </Text>
+        <Text
+          style={[
+            styles.item,
+            {
+              backgroundColor: "yellow",
+            },
+          ]}
+        >
+          4
+        </Text>
+      </View>
     </View>
   );
 }
@@ -28,5 +56,21 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  parent: {
+    borderColor: "black",
+    borderWidth: 1,
+    width: "90%",
+    height: 300,
+
+    // Flexbox
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  item: {
+    flex: 1,
+    width: 100,
+    height: 100,
   },
 });
