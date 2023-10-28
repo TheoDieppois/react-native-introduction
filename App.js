@@ -6,6 +6,8 @@ import {
   Text,
   Image,
   ScrollView,
+  Alert,
+  Platform,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import ButtonWithLabel from "./components/ButtonWithLabel/ButtonWithLabel";
@@ -18,7 +20,7 @@ export default function App() {
       <View style={styles.header}>
         <TouchableOpacity
           onPress={() => {
-            alert("Menu pressed!");
+            Alert.alert("Menu pressed!", 'This is a "Menu" button!');
           }}
         >
           <Ionicons name="menu" size={30} color="#000" />
@@ -28,7 +30,7 @@ export default function App() {
           <TouchableOpacity
             style={styles.headerGift}
             onPress={() => {
-              alert("Gift pressed!");
+              Alert.alert("Gift pressed!", 'This is a "Gift" button!');
             }}
           >
             <Ionicons name="gift" size={18} color="#3C5DA9" />
@@ -37,7 +39,10 @@ export default function App() {
 
           <TouchableOpacity
             onPress={() => {
-              alert("Notifications pressed!");
+              Alert.alert(
+                "Notifications pressed!",
+                'This is a "Notifications" button!'
+              );
             }}
           >
             <Ionicons name="notifications-outline" size={25} color="#000" />
@@ -134,6 +139,7 @@ const styles = StyleSheet.create({
 
   // Header
   header: {
+    marginTop: Platform.OS === "android" ? 40 : 10,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",

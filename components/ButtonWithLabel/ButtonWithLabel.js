@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Alert } from "react-native";
 import styles from "./ButtonWithLabel.styles";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
@@ -7,7 +7,7 @@ const Button = ({ iconName, label }) => {
     <TouchableOpacity
       style={styles.buttonContainer}
       onPress={() => {
-        alert(`${label} pressed!`);
+        Alert.alert(`${label} pressed!`, `This is a "${label}" button!`);
       }}
     >
       <View style={styles.buttonCircle}>
